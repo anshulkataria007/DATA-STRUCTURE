@@ -1,0 +1,54 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct Node
+{int data;
+ struct Node* next;
+}*start=NULL;
+void createlist(int a)
+{struct Node* newnode,*temp;
+int i,num;
+start=(struct Node*)malloc(sizeof(struct Node));
+scanf("%d",&num);
+start->data=num;
+start->next=NULL;
+temp=start;
+for(i=2;i<=a;i++)
+{
+    newnode=(struct Node*)malloc(sizeof(struct Node));
+    scanf("%d",&num);
+    newnode->data=num;
+    newnode->next=NULL;
+    temp->next=newnode;
+    temp=temp->next;
+    
+}
+}
+void printlist(struct Node* p,int n)
+{int a,i,l;
+ scanf("%d",&a);
+ l=n-a;
+ if(l>0){printf("Linked List : ");
+     for(i=1;i<=l;i++){
+        printf("->%d",p->data);
+        p=p->next;}
+        }
+         else if(l<0){
+           printf("Linked List :");
+ }
+ else
+ {
+   printf("Linked List :");
+ }
+}
+int main()
+{
+ if(start==NULL)
+ {
+ }
+    int n,a,t;
+    scanf("%d",&n);
+    createlist(n);
+  
+    printlist(start,n);
+  return 0;
+}
